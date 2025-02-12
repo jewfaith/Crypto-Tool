@@ -25,7 +25,7 @@ Este projeto é um **script em Python** que demonstra como:
      - Blocos de dados cifrados.
 
 3. **Descriptografia de Arquivos**  
-   - Carrega a chave privada RSA (com a passphrase, se tiver).  
+   - Carrega a chave privada RSA (com a passphrase).  
    - Extrai e decifra a chave simétrica armazenada no arquivo.  
    - Em seguida, usa essa chave simétrica para decifrar o restante do arquivo em blocos.
 
@@ -98,7 +98,7 @@ O script em **um único arquivo** (`crypto_tool.py`) tem as seguintes partes:
    Será exibido um menu com opções numeradas.
 
 3. **Gere um par de chaves (opção 1)**:
-   - Informe tamanho (exemplo: `2048`), e opcionalmente uma passphrase.  
+   - Informe tamanho (exemplo: `2048`), e uma passphrase.  
    - As chaves serão salvas como `private_key.pem` e `public_key.pem`.
 
 4. **Criptografe um arquivo (opção 2)**:
@@ -106,7 +106,7 @@ O script em **um único arquivo** (`crypto_tool.py`) tem as seguintes partes:
    - O script gerará `encrypted.bin` contendo dados cifrados.
 
 5. **Descriptografe um arquivo (opção 3)**:
-   - Indique o arquivo criptografado (`encrypted.bin`), o nome do arquivo de saída decifrado, o caminho da chave privada e a passphrase (se houver).  
+   - Indique o arquivo criptografado (`encrypted.bin`), o nome do arquivo de saída decifrado, o caminho da chave privada e a passphrase.  
    - O script recriará o conteúdo original no arquivo de saída.
 
 6. **Autodestruição (opção 4)**:
@@ -121,9 +121,7 @@ O script em **um único arquivo** (`crypto_tool.py`) tem as seguintes partes:
 ## Observações Importantes
 
 - **AES-GCM com nonce fixo** para cada chunk:  
-  - No script, cada bloco do arquivo é cifrado usando o **mesmo nonce**. Em uso real, **não é recomendável**. O ideal é utilizar um nonce distinto para cada bloco ou derivar um nonce incremental para evitar riscos de segurança.  
-- **Proteção de Chaves Privadas**:  
-  - Se a chave privada não tiver passphrase ou se for guardada sem criptografia adicional, qualquer um com acesso ao arquivo poderá usá-la para descriptografar dados.  
+  - No script, cada bloco do arquivo é cifrado usando o **mesmo nonce**. Em uso real, **não é recomendável**. O ideal é utilizar um nonce distinto para cada bloco ou derivar um nonce incremental para evitar riscos de segurança.
 - **Exclusão Segura**:  
   - Mesmo sobrescrevendo o arquivo, sistemas de arquivos modernos e SSDs podem manter dados em blocos de memória diferentes do setor original. Portanto, a exclusão segura pode não ser totalmente eficaz.  
 - **Zeroização de Memória**:  
