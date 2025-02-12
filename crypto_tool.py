@@ -309,7 +309,7 @@ def main():
         if choice == "1":
             print("\n--- Gerar Par de Chaves RSA ---")
             key_size_str = input("Tamanho da chave (ex: 2048, 3072): ")
-            passphrase = input("Passphrase (opcional, Enter se não quiser): ")
+            passphrase = input("Passphrase: ")
 
             try:
                 key_size = int(key_size_str)
