@@ -1,5 +1,3 @@
-# Crypto Tool
-
 Este projeto é um **script em Python** que demonstra como:
 - Gerar um par de chaves RSA (privada e pública),
 - Criptografar arquivos usando um **esquema híbrido** (chave simétrica AES-GCM + chave RSA),
