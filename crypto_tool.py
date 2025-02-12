@@ -145,7 +145,7 @@ class CryptoManager:
 
     def load_private_key(self, filepath: str, passphrase=None):
         """
-        Carrega uma chave privada RSA em PEM (com ou sem passphrase).
+        Carrega uma chave privada RSA em PEM (com passphrase).
         Retorna o objeto de chave privada.
         """
         try:
@@ -352,7 +352,7 @@ def main():
             infile = input("Arquivo criptografado: ")
             outfile = input("Arquivo de saída (ex: decifrado.txt): ")
             privkey_path = input("Caminho da chave privada (ex: private_key.pem): ")
-            passphrase = input("Passphrase (se houver): ")
+            passphrase = input("Passphrase: ")
 
             if not os.path.exists(infile):
                 print("[ERRO] Arquivo de entrada não existe.")
